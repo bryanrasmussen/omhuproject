@@ -6,11 +6,9 @@ export default class Routes extends Component {
     2. Present data about the given GitHub user
     */
 
-    getRepo =  (userName: string)  => {
+    getRepo =  (userName: string) : Promise<{}>  => {
         let url = `https://api.github.com/users/${userName}/repos`;
-        fetch(url).then( response => response.json() ).then(data => {
-
-        });
+        return fetch(url).then( response => response.json() );
     };
 
     render() {
